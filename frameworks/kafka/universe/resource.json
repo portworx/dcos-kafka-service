@@ -3,7 +3,8 @@
     "uris": {
       "jre-tar-gz": "{{jre-url}}",
       "libmesos-bundle-tar-gz": "{{libmesos-bundle-url}}",
-      "bootstrap-zip": "https://downloads.mesosphere.com/dcos-commons/artifacts/{{dcos-sdk-version}}/bootstrap.zip",
+      "bootstrap-zip": "https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/{{dcos-sdk-version}}/bootstrap.zip",
+      "executor-zip": "https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/{{dcos-sdk-version}}/executor.zip",
       "kafka-tgz": "https://downloads.mesosphere.com/kafka/assets/kafka_{{kafka-version}}.tgz",
       "kafka-jre-tar-gz": "{{jre-url}}",
       "kafka-scheduler-zip": "{{artifact-dir}}/kafka-scheduler.zip",
