@@ -125,8 +125,11 @@ pods:
           {{/TASKCFG_ALL_SECURE_JMX_ENABLED}}
         volume:
           path: {{BROKER_DISK_PATH}}
-          type: {{BROKER_DISK_TYPE}}
+          type: DOCKER
           size: {{BROKER_DISK_SIZE}}
+          docker_volume_driver: pxd
+          docker_volume_name: {{{BROKER_DISK_DOCKER_VOLUME_NAME}}}
+          docker_driver_options: {{{BROKER_DISK_DOCKER_DRIVER_OPTIONS}}}
           {{#BROKER_VOLUME_PROFILE}}
           profiles:
             - {{BROKER_VOLUME_PROFILE}}

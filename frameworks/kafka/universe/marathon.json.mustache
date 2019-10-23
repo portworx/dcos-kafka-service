@@ -42,6 +42,8 @@
     "BROKER_KILL_GRACE_PERIOD": "{{brokers.kill_grace_period}}",
     "LIBMESOS_URI": "{{resource.assets.uris.libmesos-bundle-tar-gz}}",
     "BOOTSTRAP_URI": "{{resource.assets.uris.bootstrap-zip}}",
+    "EXECUTOR_URI": "{{resource.assets.uris.executor-zip}}",
+    "MESOS_API_VERSION": "{{service.mesos_api_version}}",
     "ALLOW_REGION_AWARENESS": "true",
     "NETCAT_URI": "{{resource.assets.uris.netcat}}",
     "KAFKA_URI": "{{resource.assets.uris.kafka-tgz}}",
@@ -72,7 +74,8 @@
     "BROKER_CPUS": "{{brokers.cpus}}",
     "BROKER_MEM": "{{brokers.mem}}",
     "BROKER_DISK_SIZE": "{{brokers.disk}}",
-    "BROKER_DISK_TYPE": "{{brokers.disk_type}}",
+    "BROKER_DISK_DOCKER_VOLUME_NAME": "{{{brokers.portworx_volume_name}}}",
+    "BROKER_DISK_DOCKER_DRIVER_OPTIONS": "{{{brokers.portworx_volume_options}}}",
     {{#brokers.volume_profile}}
     "BROKER_VOLUME_PROFILE": "{{brokers.volume_profile}}",
     {{/brokers.volume_profile}}
