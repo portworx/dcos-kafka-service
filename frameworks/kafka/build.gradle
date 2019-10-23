@@ -8,10 +8,10 @@ repositories {
     jcenter()
     mavenCentral()
     maven {
-        url "https://downloads.mesosphere.com/maven/"
+        url "https://s3-us-west-1.amazonaws.com/px-dcos/maven/"
     }
     maven {
-        url "https://downloads.mesosphere.com/maven-snapshot/"
+        url "https://s3-us-west-1.amazonaws.com/px-dcos/maven-snapshot/"
     }
 }
 
@@ -19,7 +19,7 @@ ext {
     junitVer = "4.12"
     systemRulesVer = "1.16.0"
     mockitoVer = "2.10.0"
-    dcosSDKVer = "0.57.0"
+    dcosSDKVer = "0.40.5-1.3.7"
 }
 
 dependencies {
