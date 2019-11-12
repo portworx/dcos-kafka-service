@@ -35,7 +35,7 @@ def kafka_server(kafka_client: client.KafkaClient, configure_security):
 
         yield {"package_name": config.PACKAGE_NAME, "service": {"name": config.SERVICE_NAME}}
     finally:
-        sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)
+        return
 
 
 @pytest.mark.smoke
@@ -211,3 +211,7 @@ def test_no_unavailable_partitions_exist(kafka_server: dict):
     )
 
     assert partition_info == {"message": ""}
+
+@pytest.mark.sanity
+def test_uninstall_service():
+    sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)

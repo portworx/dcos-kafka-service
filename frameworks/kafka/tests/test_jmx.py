@@ -82,6 +82,7 @@ def uninstall_jmx_secrets():
 
 @pytest.mark.sanity
 @sdk_utils.dcos_ee_only
+@pytest.mark.auth
 @pytest.mark.parametrize('self_signed_trust_store', [
     False,
     True

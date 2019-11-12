@@ -19,8 +19,7 @@ def kafka_server(configure_security):
 
         yield {"package_name": config.PACKAGE_NAME, "service": {"name": config.SERVICE_NAME}}
     finally:
-        sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)
-
+        return
 
 @pytest.fixture(scope="module", autouse=True)
 def kafka_topic(kafka_server: dict):
@@ -90,3 +89,8 @@ def test_remove_topic_acl(kafka_topic: dict):
     )
 
     assert not acl_info["message"]
+
+@pytest.mark.smoke
+@pytest.mark.sanity
+def test_uninstall_service():
+    sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)

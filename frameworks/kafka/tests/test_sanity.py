@@ -14,13 +14,13 @@ import shakedown
 from tests import config, test_utils
 
 log = logging.getLogger(__name__)
+foldered_name = sdk_utils.get_foldered_name(config.SERVICE_NAME)
 
 
 @pytest.fixture(scope="module", autouse=True)
 def configure_package(configure_security):
     try:
         log.info("Ensure kafka is uninstalled...")
-        foldered_name = sdk_utils.get_foldered_name(config.SERVICE_NAME)
         sdk_install.uninstall(config.PACKAGE_NAME, foldered_name)
 
         sdk_upgrade.test_upgrade(
@@ -35,8 +35,7 @@ def configure_package(configure_security):
 
         yield  # let the test session execute
     finally:
-        log.info("Clean up kafka...")
-        sdk_install.uninstall(config.PACKAGE_NAME, foldered_name)
+        return
 
 
 @pytest.mark.sanity
@@ -272,3 +271,8 @@ def test_metrics():
         config.DEFAULT_KAFKA_TIMEOUT,
         expected_metrics_exist,
     )
+
+@pytest.mark.sanity
+def test_uninstall_service():
+    log.info("Clean up kafka...")
+    sdk_install.uninstall(config.PACKAGE_NAME, foldered_name)

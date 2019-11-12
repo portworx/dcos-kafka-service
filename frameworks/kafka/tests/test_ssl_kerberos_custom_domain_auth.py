@@ -112,6 +112,7 @@ def kafka_client(kerberos):
 @pytest.mark.dcos_min_version("1.10")
 @sdk_utils.dcos_ee_only
 @pytest.mark.sanity
+@pytest.mark.auth
 def test_client_can_read_and_write(kafka_client: client.KafkaClient, kafka_server, kerberos):
 
     topic_name = "authn.test"
