@@ -63,7 +63,7 @@ def kafka_service(service_account):
 
         yield {**service_options, **{"package_name": config.PACKAGE_NAME}}
     finally:
-        sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)
+        return
 
 
 @pytest.mark.tls
@@ -192,3 +192,8 @@ def test_tls_recovery(kafka_service, service_account):
             pod,
             recovery_timeout_s=25 * 60,
         )
+
+@pytest.mark.tls
+@pytest.mark.sanity
+def test_uninstall_service():
+    sdk_install.uninstall(config.PACKAGE_NAME, config.SERVICE_NAME)

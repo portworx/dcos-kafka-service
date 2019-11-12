@@ -74,6 +74,7 @@ def setup_principals(kafka_client: client.KafkaClient):
 @pytest.mark.dcos_min_version("1.10")
 @sdk_utils.dcos_ee_only
 @pytest.mark.sanity
+@pytest.mark.auth
 def test_authz_acls_required(
     kafka_client: client.KafkaClient, kerberos, service_account, setup_principals
 ):
@@ -174,6 +175,7 @@ def test_authz_acls_required(
 @pytest.mark.dcos_min_version("1.10")
 @sdk_utils.dcos_ee_only
 @pytest.mark.sanity
+@pytest.mark.auth
 def test_authz_acls_not_required(
     kafka_client: client.KafkaClient, kerberos, service_account, setup_principals
 ):
