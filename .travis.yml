@@ -16,6 +16,8 @@ install: skip
 script:
   - if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
       frameworks/kafka/build.sh aws;
+    else
+      frameworks/kafka/build.sh;
     fi
 notifications:
   email:
