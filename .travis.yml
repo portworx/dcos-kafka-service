@@ -12,9 +12,12 @@ before_install:
   - eval "$(gimme 1.8.3)"
   - sudo ln -sf /usr/bin/python3.5 /usr/bin/python3
   - sudo pip install awscli
+install: skip
 script:
   - if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
       frameworks/kafka/build.sh aws;
+    else
+      frameworks/kafka/build.sh;
     fi
 notifications:
   email:

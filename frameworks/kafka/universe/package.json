@@ -4,9 +4,7 @@
   "upgradesFrom": [
     "{{upgrades-from}}"
   ],
-  "downgradesTo": [
-    "{{downgrades-to}}"
-  ],
+  "downgradesTo": [],
   "name": "portworx-kafka",
   "version": "{{package-version}}",
   "maintainer": "support@portworx.com",
