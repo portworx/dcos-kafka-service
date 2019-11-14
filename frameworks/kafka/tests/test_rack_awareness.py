@@ -11,6 +11,7 @@ from tests import config, test_utils
 @pytest.mark.sanity
 @pytest.mark.dcos_min_version("1.11")
 @sdk_utils.dcos_ee_only
+@pytest.mark.rack
 def test_zones_not_referenced_in_placement_constraints():
     foldered_name = sdk_utils.get_foldered_name(config.SERVICE_NAME)
 
@@ -39,6 +40,7 @@ def test_zones_not_referenced_in_placement_constraints():
 @pytest.mark.sanity
 @pytest.mark.dcos_min_version("1.11")
 @sdk_utils.dcos_ee_only
+@pytest.mark.rack
 def test_zones_referenced_in_placement_constraints():
     foldered_name = sdk_utils.get_foldered_name(config.SERVICE_NAME)
 

@@ -90,6 +90,7 @@ def kafka_client(kerberos):
 @pytest.mark.dcos_min_version("1.10")
 @sdk_utils.dcos_ee_only
 @pytest.mark.sanity
+@pytest.mark.auth
 def test_authz_acls_required(
     kafka_client: client.KafkaClient, kafka_server: dict
 ):

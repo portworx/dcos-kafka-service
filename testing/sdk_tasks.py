@@ -248,7 +248,8 @@ def get_summary(with_completed: bool = False, task_name: Optional[str] = None) -
     )
     if task_name:
         output = list(filter(lambda t: t.name == task_name, output))
-    log.info(
+    # Log the service output as debug to avoid huge output
+    log.debug(
         "Task summary (with_completed={}, task_name=[{}]):\n- {}".format(
             with_completed, task_name, "\n- ".join([str(e) for e in output])
         )
