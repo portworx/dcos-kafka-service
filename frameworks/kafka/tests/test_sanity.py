@@ -27,7 +27,8 @@ def configure_package(configure_security):
             config.PACKAGE_NAME,
             foldered_name,
             config.DEFAULT_BROKER_COUNT,
-            from_options={"service": {"name": foldered_name}, "brokers": {"cpus": 0.5}},
+            # For all sanity tests provide additional portworx volume options.
+            from_options={"service": {"name": foldered_name}, "brokers": {"cpus": 0.5}, "brokers": {"portworx_volume_options": "repl=2"}},
         )
 
         # wait for brokers to finish registering before starting tests
