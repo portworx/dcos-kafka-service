@@ -52,7 +52,7 @@ def create_topic(topic_name, service_name=config.SERVICE_NAME):
     log.info("Created topic %s.", topic_name)
 
     if "." in topic_name or "_" in topic_name:
-	log.info("Topics with a period . or underscore _ could collide. Topic - %s", topic_name)
+        log.info("Topics with a period . or underscore _ could collide. Topic - %s", topic_name)
 
     _, topic_list_after, _ = sdk_cmd.svc_cli(config.PACKAGE_NAME, service_name, "topic list", parse_json=True)
 
